@@ -71,7 +71,7 @@ ip addr add ${AP_ADDR}/24 dev ${INTERFACE}
 # NAT settings
 echo "NAT settings ip_dynaddr, ip_forward"
 
-for i in ip_dynaddr ip_forward ; do 
+for i in ip_forward ; do 
   if [ $(cat /proc/sys/net/ipv4/$i) ]; then
     echo $i already 1 
   else
@@ -79,7 +79,7 @@ for i in ip_dynaddr ip_forward ; do
   fi
 done
 
-cat /proc/sys/net/ipv4/ip_dynaddr 
+# cat /proc/sys/net/ipv4/ip_dynaddr 
 cat /proc/sys/net/ipv4/ip_forward
 
 if [ "${OUTGOINGS}" ] ; then
